@@ -3,7 +3,7 @@ import MovieSearch from "./components/MovieCards";
 
 function App() {
   const [search, setSearch] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
