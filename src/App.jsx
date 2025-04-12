@@ -1,24 +1,25 @@
 import React, { useState } from "react"; 
 import MovieSearch from "./components/MovieCards";
-
+import { MdDarkMode } from "react-icons/md";
+import { FaSearch } from "react-icons/fa";
 function App() {
   const [search, setSearch] = useState("");
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
 
   return (
-    <div className={`min-h-screen flex flex-col items-center justify-center transition-all duration-500 ${darkMode ? "bg-gray-900" : "bg-gradient-to-br from-indigo-600 to-pink-500"}`}>
+    <div className={`min-h-screen flex flex-col relative items-center justify-center transition-all duration-500 ${darkMode ? "bg-[#1A1A1D] text-white" : "bg-white text-black"}`}>
       <div className="w-full max-w-7xl px-6 py-10">
-        <header className="flex justify-between items-center py-4">
-          <h1 className="text-4xl text-white font-extrabold cursor-pointer">Movie Search</h1>
+        <header className="flex  gap-50 ml-90 items-center py-4">
+          <h1 className = {`text-5xl ${darkMode? 'text-white':'text-black'} font-extrabold text-center cursor-pointer`} >Movie Search</h1>
           <button
             onClick={toggleDarkMode}
-            className="text-white py-2 px-6 rounded-lg bg-gradient-to-r from-yellow-500 to-red-500 transition-all duration-300 hover:scale-105"
+            className={` cursor-pointer p-5 rounded-full hover:scale-120 hover:rotate-40  font-[Poppins] font-semibold transition-all duration-500 transition-ease-in-out ${darkMode ? 'bg-white text-black': 'bg-black text-white'} `  }
           >
-            {darkMode ? "Light Mode" : "Dark Mode"}
+            {darkMode ? <MdDarkMode /> : <MdDarkMode />   }
           </button>
         </header>
 
@@ -28,11 +29,11 @@ function App() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search for your favorite movie..."
-            className="w-full py-4 px-6 text-2xl rounded-3xl focus:outline-none focus:ring-4 focus:ring-indigo-600 shadow-xl"
+            className={`w-full py-4 px-6 text-2xl rounded-full font-[Poppins] border-2 focus:outline-none focus:ring-2 ${darkMode? 'focus:ring-white border-white text-white ' : 'focus:ring-black border-black text-black'} shadow-xl`}
           />
           <div className="absolute top-0 right-0 mr-4 mt-4">
-            <button className="text-white py-3 px-6 bg-gradient-to-r from-green-400 to-teal-600 rounded-full hover:scale-105">
-              🔍
+            <button className={`text-white py-3 px-6 cursor-pointer rounded-full hover:scale-105 ${darkMode? 'bg-white text-black': 'bg-black '}`}>
+            {darkMode ? <FaSearch color="black" /> : <FaSearch color="white" />}
             </button>
           </div>
         </div>
