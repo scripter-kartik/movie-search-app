@@ -53,8 +53,8 @@ function MovieSearch({ search, darkMode }) {
 
       {movie && (
         <div
-          className={`bg-white ${
-            darkMode ? "bg-gray-800 text-white" : "text-black"
+          className={` ${
+            darkMode ? "bg-[#1A1A1D] text-white shadow-white/50 shadow-lg " : "text-black bg-white"
           } shadow-2xl rounded-xl overflow-hidden transform transition-all duration-300 hover:scale-105`}
         >
           <div className="relative">
@@ -63,13 +63,13 @@ function MovieSearch({ search, darkMode }) {
               alt={movie.Title}
               className="w-full h-96 object-cover rounded-t-xl"
             />
-            <div className="absolute top-0 left-0 p-6 bg-gradient-to-t from-black to-transparent rounded-t-xl">
-              <h2 className="text-4xl font-bold text-white">{movie.Title}</h2>
+            <div className="absolute top-0 left-0 p-6 bg-black/50 rounded-b-3xl">
+              <h2 className="text-4xl font-[Poppins] font-bold text-white">{movie.Title}</h2>
               <p className="text-xl text-gray-300 mt-2">{movie.Year}</p>
             </div>
           </div>
           <div className="p-6">
-            <p className="text-lg text-gray-700">{movie.Plot}</p>
+            <p className={`text-lg ${darkMode? 'bg-[#1A1A1D] text-white' : 'bg-white' }`}>{movie.Plot}</p>
           </div>
         </div>
       )}
